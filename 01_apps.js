@@ -2,6 +2,10 @@ const express = require('express');
 const app = express();
 const fs = require('fs');
 app.set('view engine', 'ejs'); 
+const MongoClient = require('mongodb').MongoClient;
+const bodyParser= require('body-parser');
+app.use(bodyParser.urlencoded({extended: true}))
+app.use(express.static('public'));
 
 app.get('/',  (req, res) => {
     fs.readFile( __dirname + "/public/data/" + "membres.txt", 
