@@ -3,7 +3,13 @@ const app = express();
 app.set('view engine', 'ejs'); 
 
 app.get('/',  (req, res) => {
-   res.send('Hello World');
+    fs.readFile( __dirname + "/public/data/" + "membres.txt", 
+    'utf8',
+    (err, data) => {if (err) { return console.error(err);}
+    console.log( data );
+    let resultat = JSON.parse('[' + data + ']');           
+    res.render('template_0.ejs', {adresses: resultat})  
+    });
 })
 
 const server = app.listen(8081, () => {
