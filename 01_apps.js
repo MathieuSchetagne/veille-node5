@@ -22,8 +22,7 @@ app.get('/',  (req, res) => {
 })
 
 app.get('/formulaire',  (req, res) => {
-    console.log(__dirname);
-    res.render('formulaire.ejs') 
+    res.render('formulaire.ejs');
    })
 
 
