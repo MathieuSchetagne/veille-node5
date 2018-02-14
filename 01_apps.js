@@ -32,7 +32,6 @@ app.get('/formulaire',  (req, res) => {
   
         db.collection('adresse').save(req.body, (err, result) => {
         if (err) return console.log(err)
-        console.log('sauvegarder dans la BD')
         res.redirect('/')
         })
        
