@@ -26,6 +26,19 @@ app.get('/formulaire',  (req, res) => {
    })
 
 
+   app.post('/ajouter',  (req, res) => {
+    // Preparer l'output en format JSON
+   console.log('la route /ajouter_get')
+  
+        db.collection('adresse').save(req.body, (err, result) => {
+        if (err) return console.log(err)
+        console.log('sauvegarder dans la BD')
+        res.redirect('/')
+        })
+       
+   
+   })
+
 
 MongoClient.connect('mongodb://127.0.0.1:27017/carnet_adresse', (err, database) => {
  if (err) return console.log(err)
